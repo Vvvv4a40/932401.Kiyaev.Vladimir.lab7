@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Управление билетами и остатком мест на мероприятиях.">
+    <title>Билеты на мероприятия</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <p class="eyebrow">Лабораторная работа №7</p>
+        <h1>Билеты<br>без очереди</h1>
+        <p class="lead">Остаток мест обновляется сразу после покупки, а операции с базой защищены транзакцией.</p>
+    </header>
+
+    <main>
+        <section class="toolbar" aria-labelledby="tickets-title">
+            <div>
+                <p class="section-number">01</p>
+                <h2 id="tickets-title">Доступные билеты</h2>
+            </div>
+            <form id="filter-form" class="filter-form">
+                <label for="event-filter">Событие</label>
+                <input id="event-filter" name="event_id" type="number" min="1" placeholder="Все">
+                <button type="submit">Показать</button>
+            </form>
+        </section>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <section id="tickets" class="ticket-grid" aria-live="polite"></section>
+
+        <section class="create-section" aria-labelledby="create-title">
+            <div>
+                <p class="section-number">02</p>
+                <h2 id="create-title">Добавить тариф</h2>
+                <p>Новая запись сразу появится в базе данных.</p>
+            </div>
+            <form id="ticket-form" class="ticket-form">
+                <label>Номер события<input name="event_id" type="number" min="1" required value="7"></label>
+                <label>Тип<select name="type"><option value="general">general</option><option value="vip">vip</option></select></label>
+                <label>Цена<input name="price" type="number" min="0" step="0.01" required value="1500"></label>
+                <label>Остаток<input name="remaining" type="number" min="0" required value="20"></label>
+                <button type="submit">Добавить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>Владимир Кияев · 2026</footer>
+</body>
+</html>
